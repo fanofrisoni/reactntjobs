@@ -1,17 +1,19 @@
+
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-
 
 const useFetch = (endpoint, query) => {
     const [data, setData] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState(null);
+    
+    const apikey = process.env.EXPO_PUBLIC_API_KEY;
 
     const options = {
         method: 'GET',
         url: `https://jsearch.p.rapidapi.com/${endpoint}`,
         headers: {
-          'X-RapidAPI-Key': '33bddfac71mshd30ed08ae7237edp133f3djsn1d445be4767c',
+          'X-RapidAPI-Key': "apikey",
           'X-RapidAPI-Host': 'jsearch.p.rapidapi.com'
         },
         params: {...query},
